@@ -12,6 +12,7 @@ from inceptionv3 import model as inceptionv3_model
 
 from robustml_model import InputTransformations
 from defense import *
+print(foolbox.__file__)
 
 # instantiate model
 
@@ -20,7 +21,7 @@ sess = tf.InteractiveSession()
 defense = 'jpeg'  # 'bitdepth | jpeg | crop | quilt | tv' ############# change ##############################
 inputmodel = InputTransformations(sess,defense)
 
-model = foolbox.models.TensorFlowModel(inputmodel._input, inputmodel._logits, (0, 255))
+model = foolbox.models.TensorFlowModel(inputmodel._input, inputmodel._logits, (0, 1))
 attack = foolbox.attacks.BoundaryAttack(model)
 imagenet_path = '../imagenetval'
 

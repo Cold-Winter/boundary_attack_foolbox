@@ -5,6 +5,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 all_models/
+cifar10_data/
 images/
 # C extensions
 *.so
